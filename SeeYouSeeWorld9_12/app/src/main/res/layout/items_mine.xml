@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/iv_mineitems_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:id="@+id/tv_mineitems_item"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/iv_mineitems_icon"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/iv_mineitems_navigateicon"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/btn_detail" />
+
+    <TextView
+        android:id="@+id/tv_mineitems_explain"
+        android:layout_toLeftOf="@id/iv_mineitems_navigateicon"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:textSize="@dimen/normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

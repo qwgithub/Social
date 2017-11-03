@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/item_comment_ll"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/comment_publisher_avatar"
+            android:layout_marginRight="8dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+        <TextView
+            android:id="@+id/comment_publisher_name"
+            android:text=""
+            android:clickable="true"
+            android:textColor="@color/mediumseagreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/string_reply"
+            android:layout_margin="2dp"
+            android:text="@string/reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/comment_responder_name"
+            android:text=""
+            android:clickable="true"
+            android:textColor="@color/mediumseagreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/string_colon"
+            android:text=":"
+            android:layout_margin="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/comment_content"
+        android:layout_marginLeft="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

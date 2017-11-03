@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/sample_image"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
+    <TextView
+        android:id="@+id/recognize_result"
+        android:layout_margin="12dp"
+        android:textSize="@dimen/large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/search_from_baidu"
+        android:onClick="search_from_baidu"
+        android:text="@string/search_from_baidu"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:background="@drawable/button"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp" />
+
+</LinearLayout>

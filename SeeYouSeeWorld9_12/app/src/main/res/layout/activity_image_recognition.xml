@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_imagerecognize"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/rl_selectimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="120dp"
+        android:gravity="center">
+
+    </FrameLayout>
+
+    <com.sugan.qianwei.seeyouseeworld.views.DrawingView
+        android:id="@+id/drawingview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/iv_selectedimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="120dp"
+        android:scaleType="fitXY"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_buttongroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp">
+
+        <TextView
+            android:id="@+id/tv_usealbum"
+            android:layout_width="37dp"
+            android:layout_height="33dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_camera_photo_library"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="usealbum" />
+
+        <TextView
+            android:id="@+id/tv_usecamera"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:transitionName="take"
+            android:background="@drawable/bt_takephoto"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="usecamera"
+            android:text="拍照"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/normal" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll_showarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rl_buttongroup"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ViewFlipper
+            android:id="@+id/vf_showresult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_pageguide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vf_showresult"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/ib_recog_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@android:drawable/ic_menu_close_clear_cancel"
+        android:clickable="true"
+        android:onClick="recog_back" />
+
+</RelativeLayout>

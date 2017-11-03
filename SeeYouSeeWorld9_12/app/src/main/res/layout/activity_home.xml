@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:fitsSystemWindows="true"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sugan.qianwei.seeyouseeworld.activity.HomeActivity">
+
+    <RadioGroup
+        android:id="@+id/navigation_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/forum"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/forum_navigationbutton"
+            android:textColor="@drawable/community_btn"
+            android:text="@string/forum" />
+
+        <RadioButton
+            style="@style/RadioButtonStyle"
+            android:clickable="false"
+            />
+
+        <RadioButton
+            android:id="@+id/settings"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/account_navigationbutton"
+            android:textColor="@drawable/community_btn"
+            android:text="@string/account" />
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/content_layout"
+        android:layout_above="@id/navigation_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/recognize"
+        android:onClick="recognize"
+        android:clickable="true"
+        android:transitionName="take"
+        android:background="@drawable/ic_tab_camera"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_select_group"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sugan.qianwei.seeyouseeworld.activity.SelectGroupActivity">
+    <RelativeLayout
+        android:id="@+id/selectgroup_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/mediumseagreen"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:clickable="true"
+            android:drawableLeft="@drawable/icon_back_white"
+            android:gravity="center"
+            android:onClick="selectgroup_back"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/selectgroup"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large" />
+    </RelativeLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/selectgroup_refreshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/my_group_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+
+        </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

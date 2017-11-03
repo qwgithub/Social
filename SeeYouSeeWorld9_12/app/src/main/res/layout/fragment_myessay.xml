@@ -1,0 +1,27 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.sugan.qianwei.seeyouseeworld.views.XListView
+        android:id="@+id/xlistview"
+        android:layout_below="@id/rl_forum_actionbar"
+        android:dividerHeight="20dp"
+        android:divider="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.sugan.qianwei.seeyouseeworld.views.XListView>
+
+    <!--<TextView
+        android:id="@+id/publishWritings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="4dp"
+        android:background="@drawable/circle_icon_editor" />
+-->
+</RelativeLayout>

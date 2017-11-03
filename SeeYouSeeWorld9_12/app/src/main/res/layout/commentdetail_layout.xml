@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/dynamicdetail_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/mediumseagreen">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="hide_comments"
+            android:text="@string/hide_comments"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/comments_detail"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large" />
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/commentlayout_forumdetail_refreshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8">
+
+        <com.sugan.qianwei.seeyouseeworld.views.SpecialListView
+            android:id="@+id/lv_forumdetail_commentslistview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ScrollView
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/sendcomment_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/gray_44cc"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_dynamicdetail_commentinput"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="6dp"
+                android:layout_weight="4"
+                android:singleLine="true"
+                android:background="@drawable/commentedittext_inputstyle"
+                android:hint="@string/comment"
+                android:imeOptions="actionSend"
+                android:paddingLeft="8dp" />
+
+            <Button
+                android:id="@+id/bt_dynamicdetail_send"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="6dp"
+                android:onClick="send"
+                android:layout_weight="1"
+                android:background="@drawable/sendcomment_button_notclickable"
+                android:text="@string/send" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

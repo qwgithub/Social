@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_group_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sugan.qianwei.seeyouseeworld.activity.GroupDetailPageActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!--标题栏-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tb_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <TextView
+                android:id="@+id/tv_grouppage_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/quantum_ic_arrow_back_white_24"
+                android:clickable="true"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large" />
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.sugan.qianwei.seeyouseeworld.views.XListView
+            android:id="@+id/grouppage_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.sugan.qianwei.seeyouseeworld.views.XListView>
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.v4.widget.ContentLoadingProgressBar
+        android:id="@+id/grouppage_loading_grouppage"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp" />
+
+</android.support.design.widget.CoordinatorLayout>

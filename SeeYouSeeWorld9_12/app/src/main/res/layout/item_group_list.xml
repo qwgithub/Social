@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cardview_style"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iv_item_group_list_cover"
+        android:transitionName="group_image"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_item_group_list_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/xxlarge"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_item_group_list_membernumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textColor="@color/mediumseagreen"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="@dimen/normal" />
+
+        <TextView
+            android:id="@+id/tv_item_group_list_introduction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal" />
+    </LinearLayout>
+
+</LinearLayout>

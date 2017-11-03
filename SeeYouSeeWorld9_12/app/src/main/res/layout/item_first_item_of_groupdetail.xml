@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_group_background"
+        android:scaleType="centerCrop"
+        android:transitionName="group_image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_group_detail"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/iv_group_background"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_group_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/xxxlarge" />
+
+            <TextView
+                android:background="@drawable/small_circle"
+                android:layout_margin="5dp"
+                android:layout_width="4dp"
+                android:layout_height="4dp" />
+            
+            <TextView
+                android:id="@+id/tv_group_member_number"
+                android:textColor="@color/gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_group_description"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/bt_group_follow"
+            android:textSize="@dimen/normal"
+            android:textColor="@color/white"
+            android:background="@drawable/follow_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+</RelativeLayout>

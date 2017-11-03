@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_signature"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.sugan.qianwei.seeyouseeworld.activity.ChangeSignatureActivity">
+
+    <RelativeLayout
+        android:id="@+id/signature_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/mediumseagreen"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:clickable="true"
+            android:drawableLeft="@drawable/icon_back_white"
+            android:gravity="center"
+            android:onClick="signature_back"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/signature"
+            android:textColor="@color/white"
+            android:textSize="@dimen/xlarge" />
+
+        <TextView
+            android:id="@+id/complete"
+            android:onClick="complete"
+            android:text="@string/complete"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large"
+            android:clickable="true"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/signature_edittext"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:minHeight="150dp"
+        android:gravity="start"
+        android:padding="8dp"
+        android:hint=""
+        android:background="@drawable/feedback_edittextstyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

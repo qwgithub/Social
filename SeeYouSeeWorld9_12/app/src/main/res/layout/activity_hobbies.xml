@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_hobbies"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sugan.qianwei.seeyouseeworld.activity.HobbiesActivity">
+    <RelativeLayout
+        android:id="@+id/hobbies_titlebar"
+        android:background="@color/mediumseagreen"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <TextView
+            android:onClick="hobbies_back"
+            android:clickable="true"
+            android:textSize="@dimen/large"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginLeft="3dp"
+            android:drawableLeft="@drawable/icon_back_white"
+            android:text="@string/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="@string/hobbies"
+            android:textSize="@dimen/xlarge"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/hobbies_listview"
+        android:entries="@array/hobbies_list"
+        android:paddingLeft="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+</LinearLayout>

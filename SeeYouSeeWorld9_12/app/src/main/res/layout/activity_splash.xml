@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_initiate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@drawable/app_theme_bg"
+    tools:context="com.sugan.qianwei.seeyouseeworld.activity.SplashActivity">
+    <TextView
+        android:id="@+id/first"
+        android:text="@string/ourfuture"
+        android:textColor="@color/white"
+        android:textSize="@dimen/xxlarge"
+        android:gravity="center"
+        android:typeface="normal"
+        android:layout_marginTop="150dp"
+        android:lineSpacingExtra="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

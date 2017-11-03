@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_personal_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.sugan.qianwei.seeyouseeworld.activity.PersonalDataActivity">
+
+    <RelativeLayout
+        android:id="@+id/personaldata_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/mediumseagreen"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:clickable="true"
+            android:drawableLeft="@drawable/icon_back_white"
+            android:gravity="center"
+            android:onClick="personaldata_back"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/personaldata"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large" />
+
+        <TextView
+            android:id="@+id/modifydata"
+            android:onClick="modifydata"
+            android:text="@string/modify"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large"
+            android:clickable="true"
+            android:visibility="gone"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/personal_avatar"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/default_myavatar"
+        android:layout_margin="8dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <com.sugan.qianwei.seeyouseeworld.views.SpecialListView
+        android:id="@+id/personaldata_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_margin="4dp">
+
+    </com.sugan.qianwei.seeyouseeworld.views.SpecialListView>
+</LinearLayout>

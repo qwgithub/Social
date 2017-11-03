@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.sugan.qianwei.seeyouseeworld"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //enable multidex support 解决方法数超过64K问题 65536=2^16
+//        multiDexEnabled true
+        //极光推送依赖
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'//, 'x86'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                //极光推送
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "68b3eb87e09e7c9d0fdfa0a8", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                //腾讯移动统计分析
+                MTA_APPKEY   : "AIRU2U93XA5H",
+                MTA_CHANNEL  : "developer-default"
+        ]
+    }
+//    dexOptions {
+//        javaMaxHeapSize "4g"
+//    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.android.support:support-v4:26.0.0-alpha1'
+    compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.android.support:multidex:1.0.1'    //可执行文件分包支持
+    compile 'de.hdodenhof:circleimageview:2.1.0'    //圆形图片
+    compile 'com.loopj.android:android-async-http:1.4.9'     //网络请求框架
+    compile 'com.bigkoo:alertview:1.0.3'    //仿iOS对话框
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'    //图片加载
+    compile 'com.thefinestartist:finestwebview:1.2.7'   //web页面显示
+    compile 'cn.jiguang.sdk:jpush:3.0.8'    //极光推送
+    compile 'cn.jiguang.sdk:jcore:1.1.6'
+    //EventBus 不同组件之间通信
+    compile 'org.greenrobot:eventbus:3.1.0-RC'
+    //MTA的jar包   midjar包
+    //可视化埋点的相关jar包 （根据需要添加），可视化埋点的版本号，和MTA的版本号必须匹配，只能是当前版本号成对存在。
+    //compile 'com.qq.visual:visual:1.0.7-alpha'
+    compile 'com.qq.mta:mta:3.1.41-alpha'
+    compile 'com.tencent.mid:mid:3.73-alpha'
+    compile 'com.google.code.gson:gson:2.8.2'
+    testCompile 'junit:junit:4.12'
+    //EventBus3.0新增了一个加速模式
+    apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+}
+
+apt {
+    arguments {
+        eventBusIndex "com.afei.test.MyEventBusIndex"
+    }
+}
+

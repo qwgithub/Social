@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_forum_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:elevation="3dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/forum_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/forum_avatar"
+            android:layout_marginRight="12dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/forum_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/forum_avatar"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal" />
+
+        <RelativeLayout
+            android:layout_toRightOf="@id/forum_avatar"
+            android:layout_below="@id/forum_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/from"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/normal" />
+
+            <TextView
+                android:id="@+id/forum_group_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/from"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/blank"
+                android:textColor="@color/mediumseagreen"
+                android:textSize="@dimen/normal" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_delete_operate"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/common_popover_delete" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/forum_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/forum_cover"
+        android:layout_width="match_parent"
+        android:transitionName="big_image"
+        android:layout_height="350dp"
+        android:scaleType="centerCrop"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="8dp"
+            android:background="@color/gray_44cc" />
+
+        <TextView
+            android:id="@+id/iv_forum_praise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/praise_button_unselect"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/plus_one"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large" />
+
+        <TextView
+            android:id="@+id/tv_forum_praise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_forum_praise" />
+
+        <TextView
+            android:id="@+id/tv_forum_commentnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp" />
+
+        <ImageView
+            android:id="@+id/iv_forum_comment"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@id/tv_forum_commentnumber"
+            android:background="@drawable/quantum_ic_comment_grey600_48" />
+
+    </RelativeLayout>
+
+</LinearLayout>
