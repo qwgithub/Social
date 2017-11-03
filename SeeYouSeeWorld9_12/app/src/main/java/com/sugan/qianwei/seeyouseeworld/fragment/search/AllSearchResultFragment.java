@@ -1,4 +1,4 @@
-package com.sugan.qianwei.seeyouseeworld.fragment;
+package com.sugan.qianwei.seeyouseeworld.fragment.search;
 
 
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.sugan.qianwei.seeyouseeworld.R;
 import com.sugan.qianwei.seeyouseeworld.activity.DynamicDetailActivity;
@@ -26,14 +27,19 @@ import com.sugan.qianwei.seeyouseeworld.bean.search.group.GroupsData;
 import com.sugan.qianwei.seeyouseeworld.bean.search.user.UsersData;
 import com.sugan.qianwei.seeyouseeworld.util.RecycleViewConfig;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AllSearchResultFragment extends Fragment {
+public class AllSearchResultFragment extends Fragment implements View.OnClickListener {
 
     private RecyclerView usersRecyclerView;
     private RecyclerView groupsRecycleView;
     private RecyclerView dynamicsRecycleView;
+    private RelativeLayout rl_moreuser;
+    private RelativeLayout rl_moregroup;
+    private RelativeLayout rl_moredynamic;
     private SearchResult result;
 
 
@@ -62,6 +68,7 @@ public class AllSearchResultFragment extends Fragment {
         if (bundle != null) {
             result = (SearchResult) bundle.getSerializable("result");
         }
+        initListener();
         initUsersRecycleView();
     }
 
@@ -69,6 +76,9 @@ public class AllSearchResultFragment extends Fragment {
         usersRecyclerView = (RecyclerView) view.findViewById(R.id.users_list);
         groupsRecycleView = (RecyclerView) view.findViewById(R.id.groups_list);
         dynamicsRecycleView = (RecyclerView) view.findViewById(R.id.dynamics_list);
+        rl_moreuser = view.findViewById(R.id.more_users);
+        rl_moregroup = view.findViewById(R.id.more_groups);
+        rl_moredynamic = view.findViewById(R.id.more_dynamics);
     }
 
     private void initUsersRecycleView() {
@@ -111,6 +121,12 @@ public class AllSearchResultFragment extends Fragment {
 
     }
 
+    private void initListener(){
+        rl_moreuser.setOnClickListener(this);
+        rl_moregroup.setOnClickListener(this);
+        rl_moredynamic.setOnClickListener(this);
+    }
+
     private void jumpToUserPage(int position) {
         //跳转到用户个人信息界面
         UsersData usersData = result.getUsers_data().getData().get(position);
@@ -144,4 +160,18 @@ public class AllSearchResultFragment extends Fragment {
 //        }
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.more_users:
+                EventBus.getDefault().post(new SwitchFragmentEvent(SwitchFragmentEvent.USER_FRAGMENT));
+                break;
+            case R.id.more_groups:
+                EventBus.getDefault().post(new SwitchFragmentEvent(SwitchFragmentEvent.GROUP_FRAGMENT));
+                break;
+            case R.id.more_dynamics:
+                EventBus.getDefault().post(new SwitchFragmentEvent(SwitchFragmentEvent.DYNAMIC_FRAGMENT));
+                break;
+        }
+    }
 }

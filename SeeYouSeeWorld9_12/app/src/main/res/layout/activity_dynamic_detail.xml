@@ -63,6 +63,7 @@
                         android:id="@+id/dynamicdetail_forum_avatar"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
+                        android:transitionName="avatar"
                         android:layout_centerVertical="true"
                         android:background="@drawable/default_myavatar" />
 

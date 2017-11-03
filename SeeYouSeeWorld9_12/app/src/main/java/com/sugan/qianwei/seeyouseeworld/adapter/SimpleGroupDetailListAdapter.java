@@ -54,7 +54,7 @@ public class SimpleGroupDetailListAdapter extends BaseAdapter {
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(context, R.layout.item_selectresult_group, null);
+            convertView = View.inflate(context, R.layout.item_searchresult_group, null);
             holder.group_name = (TextView) convertView.findViewById(R.id.tv_grouplistname);
             holder.group_cover = (CircleImageView) convertView.findViewById(R.id.civ_grouplistcover);
             convertView.setTag(holder);

@@ -17,6 +17,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.transition.Explode;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -80,6 +81,10 @@ public class WritingsActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writings);
         findViews();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setEnterTransition(new Explode().setDuration(200));
+            getWindow().setExitTransition(new Explode().setDuration(200));
+        }
         initInputMethodManage();
         writing_content.addTextChangedListener(watcher);
     }

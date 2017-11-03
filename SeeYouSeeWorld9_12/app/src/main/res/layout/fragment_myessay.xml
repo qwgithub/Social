@@ -9,8 +9,9 @@
         android:layout_below="@id/rl_forum_actionbar"
         android:dividerHeight="20dp"
         android:divider="@color/white"
+        android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     </com.sugan.qianwei.seeyouseeworld.views.XListView>
 

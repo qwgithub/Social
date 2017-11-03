@@ -18,6 +18,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bigkoo.alertview.OnItemClickListener;
 import com.google.gson.Gson;
@@ -204,6 +205,10 @@ public class SearchActivity extends Activity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (responseBody == null) {
+                    Toast.makeText(SearchActivity.this, "搜索失败", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Log.d(TAG, "onSuccess: " + new String(responseBody));
                 Gson gson = new Gson();
                 Type type = new TypeToken<SearchResult>() {
@@ -223,6 +228,10 @@ public class SearchActivity extends Activity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                if (responseBody == null) {
+                    Toast.makeText(SearchActivity.this, "搜索失败", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Log.d(TAG, "onFailure: " + new String(responseBody));
             }
 

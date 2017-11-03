@@ -222,10 +222,11 @@ public class ForumBaseAdapter extends BaseAdapter implements AbsListView.OnScrol
                 intent.putExtra("dynamicdetail", forumContentItem);
                 intent.putExtra("selectedforumposition", position);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(context, holder.cover, "big_image").toBundle());
+                    context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(context, holder.avatar, "avatar").toBundle());
                 } else {
                     context.startActivity(intent);
                 }
+//                context.startActivity(intent);
             }
         });
 

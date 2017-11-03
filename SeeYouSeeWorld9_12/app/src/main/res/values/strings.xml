@@ -123,8 +123,9 @@
     <string name="search">搜索</string>
     <string name="clear_record">清除搜索记录</string>
     <string name="searchpage">搜索页</string>
-    <string name="searchresult_user">用户</string>
+    <string name="searchresult_user">更多用户</string>
     <string name="more">更多</string>
-    <string name="searchresult_group">分组</string>
+    <string name="searchresult_group">更多分组</string>
+    <string name="searchresult_dynamic">更多动态</string>
 
 </resources>

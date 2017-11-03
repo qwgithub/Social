@@ -28,7 +28,8 @@
     <com.sugan.qianwei.seeyouseeworld.views.XListView
         android:id="@+id/xlistview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
         android:layout_below="@id/rl_forum_actionbar"
         android:divider="@color/white"
         android:dividerHeight="20dp" />

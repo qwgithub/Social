@@ -370,7 +370,11 @@ public class ForumFragment extends Fragment implements XListView.IXListViewListe
 //        } else {
 //            getActivity().startActivity(intent);
 //        }
-        getActivity().startActivity(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getActivity().startActivity(new Intent(getActivity(), WritingsActivity.class), ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+        } else {
+            getActivity().startActivity(intent);
+        }
     }
 
     private void toSearchActivity(){

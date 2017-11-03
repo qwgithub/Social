@@ -26,6 +26,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.transition.Explode;
+import android.transition.Slide;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -119,7 +121,10 @@ public class ImageRecognitionActivity extends Activity {
 //        checkPermissions();
         zoomScaleGestureDetector = new ScaleGestureDetector(this, new CustomScaleGestureDetector());
         cameraFocusGestureDetector = new GestureDetector(this, new CameraFocusGestureDetector());
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setEnterTransition(new Slide().setDuration(1000));
+            getWindow().setExitTransition(new Slide().setDuration(1000));
+        }
         rl_selectimage.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

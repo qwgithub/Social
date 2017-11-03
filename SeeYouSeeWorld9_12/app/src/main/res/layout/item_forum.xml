@@ -18,6 +18,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/forum_avatar"
             android:layout_marginRight="12dp"
+            android:transitionName="avatar"
             android:layout_width="50dp"
             android:layout_height="50dp" />
 

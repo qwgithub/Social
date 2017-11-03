@@ -148,12 +148,18 @@ public class HomeActivity extends Activity {
     //跳转到识别activity
     public void recognize(View view) {
         Intent intent = new Intent(HomeActivity.this, ImageRecognitionActivity.class);
-//        startActivity(new Intent(HomeActivity.this, ImageRecognitionActivity.class));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this, view, "take").toBundle());
-        } else {
-            startActivity(intent);
-        }
+        startActivity(new Intent(HomeActivity.this, ImageRecognitionActivity.class));
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this, view, "take").toBundle());
+//        } else {
+//            startActivity(intent);
+//        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+//        } else {
+//            startActivity(intent);
+//        }
+
     }
 
     /**
