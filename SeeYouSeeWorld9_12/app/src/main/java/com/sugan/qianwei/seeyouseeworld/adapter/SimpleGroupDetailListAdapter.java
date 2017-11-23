@@ -57,12 +57,15 @@ public class SimpleGroupDetailListAdapter extends BaseAdapter {
             convertView = View.inflate(context, R.layout.item_searchresult_group, null);
             holder.group_name = (TextView) convertView.findViewById(R.id.tv_grouplistname);
             holder.group_cover = (CircleImageView) convertView.findViewById(R.id.civ_grouplistcover);
+            holder.group_introduce = convertView.findViewById(R.id.tv_grouplistintroduce);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.group_name.setText(list.get(position).getGroupName());
-        ImageLoader.getInstance().displayImage(list.get(position).getGroupCover(), holder.group_cover,
+        GroupDetail groupDetail = list.get(position);
+        holder.group_name.setText(groupDetail.getGroupName());
+        holder.group_introduce.setText(groupDetail.getGroupDetail());
+        ImageLoader.getInstance().displayImage(groupDetail.getGroupCover(), holder.group_cover,
                 new DisplayImageOptions.Builder()
                         .cacheOnDisk(true)
                         .cacheInMemory(true)
@@ -74,6 +77,7 @@ public class SimpleGroupDetailListAdapter extends BaseAdapter {
 
     static class ViewHolder {
         TextView group_name;
+        TextView group_introduce;
         CircleImageView group_cover;
     }
 

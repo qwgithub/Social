@@ -30,7 +30,7 @@ import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sugan.qianwei.seeyouseeworld.R;
 import com.sugan.qianwei.seeyouseeworld.adapter.PersonalDataListAdapter;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.PersonalDataItem;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
 import com.sugan.qianwei.seeyouseeworld.util.DialogFactoryUtil;
@@ -314,7 +314,7 @@ public class PersonalDataActivity extends Activity {
                 e.printStackTrace();
             }
         }
-        ((MyApp) getApplication()).getClient().post(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+        ((MyApplication) getApplication()).getClient().post(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 String response = new String(responseBody);
@@ -348,7 +348,7 @@ public class PersonalDataActivity extends Activity {
         String url = Constants.MAIN_URL + "getUserInfo";
         RequestParams params = new RequestParams();
         params.put("userid", userid);
-        ((MyApp) getApplication()).getClient().get(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+        ((MyApplication) getApplication()).getClient().get(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -403,10 +403,10 @@ public class PersonalDataActivity extends Activity {
      */
     public AlertDialog createAlertDialog(Context context, String title, DialogInterface.OnClickListener confirmClickListener, DialogInterface.OnClickListener cancelClickListener) {
         layout = View.inflate(context, R.layout.modifynickname_layout, null);
-        EditText et_NickName = ((EditText) (layout.findViewById(R.id.et_modify_nickname)));
-        String content = dataList.get(0).getDescription();
-        et_NickName.setText(content);
-        et_NickName.setSelection(content.length());
+//        EditText et_NickName = ((EditText) (layout.findViewById(R.id.et_modify_nickname)));
+//        String content = dataList.get(0).getDescription();
+//        et_NickName.setText(content);
+//        et_NickName.setSelection(content.length());
         return (new AlertDialog.Builder(context).setTitle(title).setView(layout)
                 .setPositiveButton("确定", confirmClickListener).setNegativeButton("取消", cancelClickListener).create());
     }

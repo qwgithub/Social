@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bigkoo.alertview.OnItemClickListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -26,7 +25,7 @@ import com.sugan.qianwei.seeyouseeworld.activity.LoginActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.SearchActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.WritingsActivity;
 import com.sugan.qianwei.seeyouseeworld.adapter.ForumBaseAdapter;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.ForumContentItem;
 import com.sugan.qianwei.seeyouseeworld.event.AutoRefreshEvent;
 import com.sugan.qianwei.seeyouseeworld.event.ForumListChangeEvent;
@@ -43,13 +42,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
-
-import static com.thefinestartist.utils.content.ContextUtil.getCacheDir;
 
 /**
  * Created By Qianwei
@@ -163,7 +158,7 @@ public class ForumFragment extends Fragment implements XListView.IXListViewListe
         if (!"".equals(userid)) {
             params.put("userid", userid);
         }
-        ((MyApp) getActivity().getApplication()).getClient().post(getActivity(), getDynamicsUrl,
+        ((MyApplication) getActivity().getApplication()).getClient().post(getActivity(), getDynamicsUrl,
                 null, params, null, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

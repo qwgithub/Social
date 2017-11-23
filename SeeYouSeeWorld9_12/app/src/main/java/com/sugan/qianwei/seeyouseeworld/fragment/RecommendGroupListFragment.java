@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.sugan.qianwei.seeyouseeworld.R;
 import com.sugan.qianwei.seeyouseeworld.adapter.GroupListAdapter;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.GroupDetail;
 import com.sugan.qianwei.seeyouseeworld.views.XListView;
 
@@ -78,7 +78,7 @@ public class RecommendGroupListFragment extends Fragment implements XListView.IX
     }
 
     private void getGroupList(final String url) {
-        ((MyApp) getActivity().getApplication()).getClient().get(getActivity().getApplicationContext(), url, new AsyncHttpResponseHandler() {
+        ((MyApplication) getActivity().getApplication()).getClient().get(getActivity().getApplicationContext(), url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (responseBody != null) {

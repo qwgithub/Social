@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sugan.qianwei.seeyouseeworld.R;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
 import com.sugan.qianwei.seeyouseeworld.util.Matchers;
 import com.sugan.qianwei.seeyouseeworld.util.SharedPreferenceUtil;
@@ -155,7 +155,7 @@ public class LoginActivity extends Activity {
         RequestParams params = new RequestParams();
         params.put("mail", em);
         params.put("password", pw);
-        ((MyApp) getApplication()).getClient().post(LoginActivity.this, url,
+        ((MyApplication) getApplication()).getClient().post(LoginActivity.this, url,
                 null, params, null, new AsyncHttpResponseHandler() {
                     @Override
                     public void onStart() {

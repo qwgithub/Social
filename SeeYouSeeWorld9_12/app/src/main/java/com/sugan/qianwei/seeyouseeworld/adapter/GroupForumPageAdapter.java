@@ -22,7 +22,7 @@ import com.sugan.qianwei.seeyouseeworld.R;
 import com.sugan.qianwei.seeyouseeworld.activity.DynamicDetailActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.LoginActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.UserPageActivity;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.ForumContentItem;
 import com.sugan.qianwei.seeyouseeworld.bean.GroupDetail;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
@@ -244,7 +244,7 @@ public class GroupForumPageAdapter extends BaseAdapter {
         RequestParams params = new RequestParams();
         params.put("user_id", login_userid);
         params.put("group_id", groupId);
-        ((MyApp) context.getApplication()).getClient().post(context.getApplicationContext(), followUrl, params, new AsyncHttpResponseHandler() {
+        ((MyApplication) context.getApplication()).getClient().post(context.getApplicationContext(), followUrl, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (responseBody != null) {
@@ -297,7 +297,7 @@ public class GroupForumPageAdapter extends BaseAdapter {
         }
         params.put("dynamicid", dynamicId);
         Log.d(TAG, "praiseRequest: " + praiseUrl);
-        ((MyApp) context.getApplication()).getClient().post(context.getApplicationContext(), praiseUrl,
+        ((MyApplication) context.getApplication()).getClient().post(context.getApplicationContext(), praiseUrl,
                 params, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -349,7 +349,7 @@ public class GroupForumPageAdapter extends BaseAdapter {
         String deleteUrl = Constants.MAIN_URL + "del_dynamic";
         RequestParams params = new RequestParams();
         params.put("id", list.get(position).getId());
-        ((MyApp) context.getApplication()).getClient().post(context.getApplicationContext(), deleteUrl, params,
+        ((MyApplication) context.getApplication()).getClient().post(context.getApplicationContext(), deleteUrl, params,
                 new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

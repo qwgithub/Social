@@ -1,7 +1,6 @@
 package com.sugan.qianwei.seeyouseeworld.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -9,20 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.TextView;
 
-import com.bigkoo.alertview.OnItemClickListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 import com.sugan.qianwei.seeyouseeworld.R;
-import com.sugan.qianwei.seeyouseeworld.activity.LoginActivity;
-import com.sugan.qianwei.seeyouseeworld.activity.WritingsActivity;
 import com.sugan.qianwei.seeyouseeworld.adapter.MyEssayAdapter;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.ForumContentItem;
-import com.sugan.qianwei.seeyouseeworld.util.DialogFactoryUtil;
 import com.sugan.qianwei.seeyouseeworld.util.SharedPreferenceUtil;
 import com.sugan.qianwei.seeyouseeworld.views.XListView;
 
@@ -116,7 +108,7 @@ public class MyEssayFragment extends Fragment implements XListView.IXListViewLis
         if (bundle != null){
             params.put("userid", bundle.getInt("userid"));
         }
-        ((MyApp) getActivity().getApplication()).getClient().post(getActivity(), getDynamicsUrl,
+        ((MyApplication) getActivity().getApplication()).getClient().post(getActivity(), getDynamicsUrl,
                 null, params, null, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

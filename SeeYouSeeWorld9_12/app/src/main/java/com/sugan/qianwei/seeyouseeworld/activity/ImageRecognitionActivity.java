@@ -26,7 +26,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.transition.Explode;
 import android.transition.Slide;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -52,14 +51,13 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sugan.qianwei.seeyouseeworld.R;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
 import com.sugan.qianwei.seeyouseeworld.util.DialogFactoryUtil;
 import com.sugan.qianwei.seeyouseeworld.util.FileUtil;
 import com.sugan.qianwei.seeyouseeworld.util.FinestWebViewUtil;
 import com.sugan.qianwei.seeyouseeworld.util.FormatUtil;
 import com.sugan.qianwei.seeyouseeworld.views.DrawingView;
-import com.thefinestartist.finestwebview.FinestWebView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -285,7 +283,7 @@ public class ImageRecognitionActivity extends Activity {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        ((MyApp) getApplication()).getClient().post(ImageRecognitionActivity.this, url,
+        ((MyApplication) getApplication()).getClient().post(getApplicationContext(), url,
                 null, params, null, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

@@ -43,8 +43,11 @@
                 <TextView
                     android:id="@+id/my_name"
                     style="@style/TextViewStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:layout_marginTop="5dp"
                     android:text="@string/username_default" />
 

@@ -66,7 +66,7 @@
     <string name="personaldata">修改个人资料</string>
     <string name="modify_personaldata">编辑资料</string>
     <string name="change_avatar">点击修改</string>
-    <string name="modifynickname">昵称(少于15字)</string>
+    <string name="modifynickname">昵称(不超过10个字)</string>
     <string name="profession">职业</string>
     <string name="hobbies">兴趣爱好</string>
     <string name="signature">个性签名</string>

@@ -25,7 +25,7 @@ import com.sugan.qianwei.seeyouseeworld.activity.DisplayBigImageActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.GroupDetailPageActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.LoginActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.UserPageActivity;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.ForumContentItem;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
 import com.sugan.qianwei.seeyouseeworld.util.DialogFactoryUtil;
@@ -229,7 +229,7 @@ implements View.OnClickListener{
         }
         params.put("dynamicid", dynamicId);
         Log.d(TAG, "praiseRequest: " + praiseUrl);
-        ((MyApp) mContext.getApplication()).getClient().post(mContext.getApplicationContext(), praiseUrl,
+        ((MyApplication) mContext.getApplication()).getClient().post(mContext.getApplicationContext(), praiseUrl,
                 params, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -281,7 +281,7 @@ implements View.OnClickListener{
         String deleteUrl = Constants.MAIN_URL + "del_dynamic";
         RequestParams params = new RequestParams();
         params.put("id", mDatas.get(position).getId());
-        ((MyApp) mContext.getApplication()).getClient().post(mContext.getApplicationContext(), deleteUrl, params,
+        ((MyApplication) mContext.getApplication()).getClient().post(mContext.getApplicationContext(), deleteUrl, params,
                 new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

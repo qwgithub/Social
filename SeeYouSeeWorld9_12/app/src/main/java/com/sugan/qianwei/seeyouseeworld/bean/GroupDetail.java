@@ -38,6 +38,13 @@ public class GroupDetail implements Serializable{
         this.groupId = groupId;
     }
 
+    public GroupDetail(int groupId, String groupName, String groupDetail, String groupCover) {
+        this.groupId = groupId;
+        this.groupName = groupName;
+        this.groupDetail = groupDetail;
+        this.groupCover = groupCover;
+    }
+
     public int getGroupId() {
         return groupId;
     }

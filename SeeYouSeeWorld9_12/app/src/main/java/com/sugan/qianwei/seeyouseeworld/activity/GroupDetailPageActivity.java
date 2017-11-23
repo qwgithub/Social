@@ -14,7 +14,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sugan.qianwei.seeyouseeworld.R;
 import com.sugan.qianwei.seeyouseeworld.adapter.GroupForumPageAdapter;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.ForumContentItem;
 import com.sugan.qianwei.seeyouseeworld.bean.GroupDetail;
 import com.sugan.qianwei.seeyouseeworld.util.SharedPreferenceUtil;
@@ -74,7 +74,7 @@ public class GroupDetailPageActivity extends Activity implements XListView.IXLis
         if (!"".equals(userid)) {
             params.put("user_id", userid);
         }
-        ((MyApp) getApplication()).getClient().get(getApplicationContext(), getGroupInfoUrl, params, new AsyncHttpResponseHandler() {
+        ((MyApplication) getApplication()).getClient().get(getApplicationContext(), getGroupInfoUrl, params, new AsyncHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

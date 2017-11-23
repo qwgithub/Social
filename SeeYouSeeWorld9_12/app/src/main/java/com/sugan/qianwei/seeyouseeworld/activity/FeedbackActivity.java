@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sugan.qianwei.seeyouseeworld.R;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
 import com.sugan.qianwei.seeyouseeworld.util.SharedPreferenceUtil;
 
@@ -85,7 +84,7 @@ public class FeedbackActivity extends Activity {
             return;
         }
         params.put("content", et_suggestions.getText().toString());
-        ((MyApp)getApplication()).getClient().post(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+        ((MyApplication)getApplication()).getClient().post(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (responseBody == null){

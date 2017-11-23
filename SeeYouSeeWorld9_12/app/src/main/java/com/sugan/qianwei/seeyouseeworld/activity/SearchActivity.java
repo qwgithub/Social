@@ -26,7 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sugan.qianwei.seeyouseeworld.R;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.search.SearchResult;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
 import com.sugan.qianwei.seeyouseeworld.util.DialogFactoryUtil;
@@ -35,7 +35,6 @@ import com.sugan.qianwei.seeyouseeworld.util.UserInfoManage;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -196,7 +195,7 @@ public class SearchActivity extends Activity {
         params.put("user_id", UserInfoManage.getUserId(this));
         params.put("type", "no");
         params.put("key_word", keyWord);
-        ((MyApp) (getApplication())).getClient().get(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+        ((MyApplication) (getApplication())).getClient().get(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();

@@ -18,7 +18,7 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/tv_personal_title"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginRight="60dp"
         android:background="@null"
         android:maxLines="1"
         android:ellipsize="end"

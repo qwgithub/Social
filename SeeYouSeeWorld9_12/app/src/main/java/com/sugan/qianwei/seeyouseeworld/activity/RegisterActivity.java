@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,16 +17,12 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sugan.qianwei.seeyouseeworld.R;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
 import com.sugan.qianwei.seeyouseeworld.util.Matchers;
-import com.sugan.qianwei.seeyouseeworld.util.SharedPreferenceUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -158,7 +153,7 @@ public class RegisterActivity extends Activity {
         params.put("mail", em);
         params.put("password", pw);
         params.put("confirmpwd", cpw);
-        ((MyApp) getApplication()).getClient().post(RegisterActivity.this, url,
+        ((MyApplication) getApplication()).getClient().post(RegisterActivity.this, url,
                 null, params, null, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

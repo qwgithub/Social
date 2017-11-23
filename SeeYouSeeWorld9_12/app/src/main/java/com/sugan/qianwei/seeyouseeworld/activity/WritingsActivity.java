@@ -33,7 +33,7 @@ import com.bigkoo.alertview.OnItemClickListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sugan.qianwei.seeyouseeworld.R;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.GroupDetail;
 import com.sugan.qianwei.seeyouseeworld.event.AutoRefreshEvent;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
@@ -213,7 +213,7 @@ public class WritingsActivity extends Activity implements View.OnClickListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        ((MyApp) getApplication()).getClient().post(WritingsActivity.this, releaseUrl,
+        ((MyApplication) getApplication()).getClient().post(WritingsActivity.this, releaseUrl,
                 null, params, null, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

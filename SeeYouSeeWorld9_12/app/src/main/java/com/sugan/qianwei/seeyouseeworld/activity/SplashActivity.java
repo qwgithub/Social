@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.sugan.qianwei.seeyouseeworld.R;
 
+import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -15,13 +16,25 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-                Intent homeIntent = new Intent(SplashActivity.this, HomeActivity.class);
-                startActivity(homeIntent);
-                finish();
+        new Timer().schedule(new MyTimerTask(this) , 1000);
+    }
+
+    private static class MyTimerTask extends TimerTask {
+
+        private WeakReference<Activity> activity;
+
+        public MyTimerTask(Activity activity) {
+            this.activity = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void run() {
+            Activity outer = activity.get();
+            if (outer != null){
+                Intent homeIntent = new Intent(outer, HomeActivity.class);
+                outer.startActivity(homeIntent);
+                outer.finish();
             }
-        }, 1000);
+        }
     }
 }

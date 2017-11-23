@@ -1,32 +1,25 @@
 package com.sugan.qianwei.seeyouseeworld.fragment.search;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sugan.qianwei.seeyouseeworld.R;
-import com.sugan.qianwei.seeyouseeworld.activity.SearchActivity;
-import com.sugan.qianwei.seeyouseeworld.activity.SearchResultDisplayActivity;
-import com.sugan.qianwei.seeyouseeworld.adapter.UserListAdapter;
-import com.sugan.qianwei.seeyouseeworld.adapter.search.SearchResultUsersAdapter;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.adapter.search.UserListAdapter;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.search.SearchResult;
 import com.sugan.qianwei.seeyouseeworld.bean.search.user.Users;
 import com.sugan.qianwei.seeyouseeworld.bean.search.user.UsersData;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
-import com.sugan.qianwei.seeyouseeworld.util.DialogFactoryUtil;
 import com.sugan.qianwei.seeyouseeworld.util.UserInfoManage;
 import com.sugan.qianwei.seeyouseeworld.views.XListView;
 
@@ -67,7 +60,26 @@ public class UserSearchResultFragment extends Fragment implements XListView.IXLi
         super.onActivityCreated(savedInstanceState);
         initData();
         initXListView(xListView);
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: ");
         xListView.autoRefresh();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        Log.d(TAG, "onHiddenChanged: ");
     }
 
     private void initData() {
@@ -116,7 +128,7 @@ public class UserSearchResultFragment extends Fragment implements XListView.IXLi
         params.put("type", "user");
         params.put("key_word", keyWord);
         params.put("page", currentPage);
-        ((MyApp) (getActivity().getApplication())).getClient().get(getActivity(), url, params, new AsyncHttpResponseHandler() {
+        ((MyApplication) (getActivity().getApplication())).getClient().get(getActivity(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (responseBody == null) {

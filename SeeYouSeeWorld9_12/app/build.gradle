@@ -12,7 +12,7 @@ android {
         versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //enable multidex support 解决方法数超过64K问题 65536=2^16
-//        multiDexEnabled true
+        multiDexEnabled true
         //极光推送依赖
         ndk {
             //选择要添加的对应cpu类型的.so库。
@@ -30,9 +30,9 @@ android {
                 MTA_CHANNEL  : "developer-default"
         ]
     }
-//    dexOptions {
-//        javaMaxHeapSize "4g"
-//    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
     buildTypes {
         release {
             minifyEnabled true
@@ -77,6 +77,9 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     testCompile 'junit:junit:4.12'
     apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+    // LeakCanary检查内存泄漏
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 }
 
 apt {

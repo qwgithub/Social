@@ -21,6 +21,8 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import com.nostra13.universalimageloader.utils.StorageUtils;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.sugan.qianwei.seeyouseeworld.R;
 import com.sugan.qianwei.seeyouseeworld.util.FileUtil;
 import com.tencent.stat.MtaSDkException;
@@ -35,19 +37,37 @@ import cn.jpush.android.api.JPushInterface;
  * 自定义Application
  */
 
-public class MyApp extends Application {
+public class MyApplication extends Application {
 
     private AsyncHttpClient mClient;
+
+    private RefWatcher refWatcher;
 
     private final static String MTA_APP_KEY = "AIRU2U93XA5H";
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mClient = new AsyncHttpClient();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        refWatcher = LeakCanary.install(this);
+        initAsyncHttpClient();
         initUILConfig();
         initJPush();
         initMTA();
+    }
+
+    public static RefWatcher getRefWatcher(Context context) {
+        MyApplication application = (MyApplication) context.getApplicationContext();
+        return application.refWatcher;
+    }
+
+    //初始化网络请求
+    private void initAsyncHttpClient(){
+        mClient = new AsyncHttpClient();
     }
 
     //初始化腾讯移动分析

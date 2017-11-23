@@ -3,13 +3,10 @@ package com.sugan.qianwei.seeyouseeworld.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,7 +14,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sugan.qianwei.seeyouseeworld.R;
 import com.sugan.qianwei.seeyouseeworld.adapter.SimpleGroupDetailListAdapter;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.GroupDetail;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
 import com.sugan.qianwei.seeyouseeworld.util.SharedPreferenceUtil;
@@ -27,7 +24,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -88,7 +84,7 @@ public class SelectGroupActivity extends Activity {
         RequestParams params = new RequestParams();
         params.put("user_id", userid);
         params.put("simple", 1);
-        ((MyApp)getApplication()).getClient().get(getApplicationContext(), getGroupListUrl, params, new AsyncHttpResponseHandler() {
+        ((MyApplication)getApplication()).getClient().post(getApplicationContext(), getGroupListUrl, params, new AsyncHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -108,7 +104,8 @@ public class SelectGroupActivity extends Activity {
                                 String group_name = group_info.getString("name");
                                 int group_id = group_info.getInt("id");
                                 String group_cover = group_info.getString("cover");
-                                groupDetailList.add(new GroupDetail(group_id, group_name, group_cover));
+                                String group_intro = group_info.getString("intro");
+                                groupDetailList.add(new GroupDetail(group_id, group_name, group_intro, group_cover));
                             }
                         } else {
                             Toast.makeText(SelectGroupActivity.this, ""+jsonObject.getString("status_msg"), Toast.LENGTH_SHORT).show();
@@ -121,6 +118,7 @@ public class SelectGroupActivity extends Activity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                Log.d("qianwei", "onFailure: "+new String(responseBody));
                 Toast.makeText(SelectGroupActivity.this, "分组信息拉取失败", Toast.LENGTH_SHORT).show();
                 finish();
             }

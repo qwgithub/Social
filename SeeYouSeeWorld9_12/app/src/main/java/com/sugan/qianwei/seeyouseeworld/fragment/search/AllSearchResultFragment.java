@@ -42,7 +42,6 @@ public class AllSearchResultFragment extends Fragment implements View.OnClickLis
     private RelativeLayout rl_moredynamic;
     private SearchResult result;
 
-
     public AllSearchResultFragment() {
         // Required empty public constructor
     }

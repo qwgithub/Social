@@ -36,7 +36,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sugan.qianwei.seeyouseeworld.R;
 import com.sugan.qianwei.seeyouseeworld.adapter.CommentsListAdapter;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.CommentItem;
 import com.sugan.qianwei.seeyouseeworld.bean.ForumContentItem;
 import com.sugan.qianwei.seeyouseeworld.event.ForumListChangeEvent;
@@ -231,7 +231,7 @@ public class DynamicDetailActivity extends Activity implements View.OnClickListe
         }
         params.put("dynamicid", dynamicId);
         Log.d(TAG, "praiseRequest: " + praiseUrl);
-        ((MyApp) getApplication()).getClient().post(getApplicationContext(), praiseUrl,
+        ((MyApplication) getApplication()).getClient().post(getApplicationContext(), praiseUrl,
                 params, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -276,7 +276,7 @@ public class DynamicDetailActivity extends Activity implements View.OnClickListe
         String url = Constants.MAIN_URL + "getCommentDetails";
         RequestParams params = new RequestParams();
         params.put("dynamic_id", dynamicId);
-        ((MyApp) getApplication()).getClient().get(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+        ((MyApplication) getApplication()).getClient().get(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (commentItemArrayList != null && !commentItemArrayList.isEmpty()) {
@@ -395,7 +395,7 @@ public class DynamicDetailActivity extends Activity implements View.OnClickListe
         String deleteUrl = Constants.MAIN_URL + "del_dynamic";
         RequestParams params = new RequestParams();
         params.put("id", dynamicdetail.getId());
-        ((MyApp) getApplication()).getClient().post(getApplicationContext(), deleteUrl, params,
+        ((MyApplication) getApplication()).getClient().post(getApplicationContext(), deleteUrl, params,
                 new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -478,7 +478,7 @@ public class DynamicDetailActivity extends Activity implements View.OnClickListe
             CommentItem commentItem = commentItemArrayList.get(position);
             params.put("replyto", commentItem.getPublisher_id());
         }
-        ((MyApp) getApplication()).getClient().post(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+        ((MyApplication) getApplication()).getClient().post(getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -600,9 +600,8 @@ public class DynamicDetailActivity extends Activity implements View.OnClickListe
                     || (event != null && KeyEvent.KEYCODE_ENTER == event.getKeyCode() && KeyEvent.ACTION_DOWN == event.getAction())) {
                 //处理软键盘回车 发送事件
                 dynamicdetail_send.performClick();
-
             }
-            return false;
+            return true;
         }
     };
 

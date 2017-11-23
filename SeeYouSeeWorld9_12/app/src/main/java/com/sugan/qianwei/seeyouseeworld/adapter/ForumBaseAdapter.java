@@ -29,7 +29,7 @@ import com.sugan.qianwei.seeyouseeworld.activity.DynamicDetailActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.GroupDetailPageActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.LoginActivity;
 import com.sugan.qianwei.seeyouseeworld.activity.UserPageActivity;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.ForumContentItem;
 import com.sugan.qianwei.seeyouseeworld.util.Constants;
 import com.sugan.qianwei.seeyouseeworld.util.DialogFactoryUtil;
@@ -279,7 +279,7 @@ public class ForumBaseAdapter extends BaseAdapter implements AbsListView.OnScrol
         }
         params.put("dynamicid", dynamicId);
         Log.d(TAG, "praiseRequest: " + praiseUrl);
-        ((MyApp) context.getApplication()).getClient().post(context.getApplicationContext(), praiseUrl,
+        ((MyApplication) context.getApplication()).getClient().post(context.getApplicationContext(), praiseUrl,
                 params, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -331,7 +331,7 @@ public class ForumBaseAdapter extends BaseAdapter implements AbsListView.OnScrol
         String deleteUrl = Constants.MAIN_URL + "del_dynamic";
         RequestParams params = new RequestParams();
         params.put("id", list.get(position).getId());
-        ((MyApp) context.getApplication()).getClient().post(context.getApplicationContext(), deleteUrl, params,
+        ((MyApplication) context.getApplication()).getClient().post(context.getApplicationContext(), deleteUrl, params,
                 new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

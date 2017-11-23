@@ -8,13 +8,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sugan.qianwei.seeyouseeworld.R;
+import com.sugan.qianwei.seeyouseeworld.adapter.search.UserListAdapter;
+import com.sugan.qianwei.seeyouseeworld.bean.search.user.UsersData;
 import com.sugan.qianwei.seeyouseeworld.views.XListView;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class GroupSearchResultFragment extends Fragment implements XListView.IXListViewListener{
 
+    private static final String TAG = "UserSearch";
+    private List<UsersData> groupsDataList;
+    private XListView xListView;
+    private UserListAdapter adapter;
+    private int currentPage = 1;
+    private String keyWord;
 
     public GroupSearchResultFragment() {
         // Required empty public constructor

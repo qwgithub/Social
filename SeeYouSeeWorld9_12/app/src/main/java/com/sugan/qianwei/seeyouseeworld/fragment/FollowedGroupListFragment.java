@@ -15,7 +15,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sugan.qianwei.seeyouseeworld.R;
 import com.sugan.qianwei.seeyouseeworld.adapter.GroupListAdapter;
-import com.sugan.qianwei.seeyouseeworld.application.MyApp;
+import com.sugan.qianwei.seeyouseeworld.application.MyApplication;
 import com.sugan.qianwei.seeyouseeworld.bean.GroupDetail;
 import com.sugan.qianwei.seeyouseeworld.util.SharedPreferenceUtil;
 import com.sugan.qianwei.seeyouseeworld.views.XListView;
@@ -83,7 +83,7 @@ public class FollowedGroupListFragment extends Fragment implements XListView.IXL
         RequestParams params = new RequestParams();
         String userid = SharedPreferenceUtil.getFromCache(getActivity().getApplicationContext(), "userinfo", "userid");
         params.put("user_id", userid);
-        ((MyApp) getActivity().getApplication()).getClient().get(getActivity().getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
+        ((MyApplication) getActivity().getApplication()).getClient().get(getActivity().getApplicationContext(), url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (responseBody != null) {
